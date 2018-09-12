@@ -55,6 +55,34 @@ def ReducedRowEchelonForm(m):
     return m
 
 def PrintSolution(m):
+    d = dict()
+    a,b = m.shape
+    for i in range(a-1,-1,-1):
+        d2 = dict()
+
+        check = 0
+        if np.count_nonzero(m[i, :]) == 0:
+            continue
+        for k in range(0, b - 1):
+            if m[i, k] == 0:
+                continue
+            if m[i,k] != 0 and len(d2) > 0:
+                xsubscript =str(k+1)
+                d2[k+1] == "-x"+xsubscript
+
+            if m[i, k] == 1 and len(d2) == 0:
+                check = k+1
+        d[check] == m[i, b - 1]
+
+
+    # save first 1
+    #loop through rest of line to see if empty, each one is saved in dict and in a line count dict
+    #print first 1 = m[i,b-1] + whatever is in the overall dict for where the line count dict > 0
+    #add first 1 to overall dict
+    #move to above line
+    #
+
+
     #from buttom up
     #have array of arbitrary numbers and an incrementer
 
